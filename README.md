@@ -11,6 +11,6 @@ npm install @mistergooddealfr/ace-custom-components
 yarn add @mistergooddealfr/ace-custom-components
 ```
 
-## Features
+## ✨ Features
 
 - Graphical components for React and React Native app
