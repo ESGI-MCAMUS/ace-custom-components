@@ -1,4 +1,4 @@
-# School project
+# School project - Application Communautaire des Étudiants
 
 https://www.npmjs.com/package/@mistergooddealfr/ace-custom-components
 
