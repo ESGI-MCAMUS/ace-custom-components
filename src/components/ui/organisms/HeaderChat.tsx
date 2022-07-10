@@ -1,19 +1,19 @@
-import { Container } from '../../common/Container.component'
-import { hp } from '../../../utils/functions'
-import { Avatar, Menu, Pressable, Text } from 'native-base'
-import * as React from 'react'
-import { StyleSheet, TouchableOpacity, Image, View } from 'react-native'
-import { Colors } from '../../../constants/Colors'
-import { ReportModal } from './ReportModal'
+import { Container } from "../../common/Container.component";
+import { hp } from "../../../utils/functions";
+import { Avatar, Menu, Pressable, Text } from "native-base";
+import * as React from "react";
+import { StyleSheet, TouchableOpacity, Image, View } from "react-native";
+import { Colors } from "../../../constants/Colors";
+import { ReportModal } from "./ReportModal";
 
 interface HeaderChatProps {
-  title: string
-  picture?: string | null
-  onBack: () => void
-  userId?: number
-  useCreateReportMutation: any
-  setLoading: any
-  applicationState: any
+  title: string;
+  picture?: string | null;
+  onBack: () => void;
+  userId?: number;
+  useCreateReportMutation: any;
+  setLoading: any;
+  applicationState: any;
 }
 
 export const HeaderChat: React.FunctionComponent<HeaderChatProps> = ({
@@ -25,20 +25,20 @@ export const HeaderChat: React.FunctionComponent<HeaderChatProps> = ({
   setLoading,
   applicationState,
 }) => {
-  const [reportPopup, setReportPopup] = React.useState(false)
+  const [reportPopup, setReportPopup] = React.useState(false);
   return (
     <Container
       disablePaddingFix
-      justifyContent='center'
-      alignItems='center'
+      justifyContent="center"
+      alignItems="center"
       color={Colors.secondary}
       style={{
-        position: 'absolute',
+        position: "absolute",
         top: 0,
         left: 0,
-        height: hp('13%'),
-        width: '100%',
-        shadowColor: 'rgba(0, 0, 0, 0.3)',
+        height: hp("13%"),
+        width: "100%",
+        shadowColor: "rgba(0, 0, 0, 0.3)",
         shadowOffset: {
           width: 0,
           height: 2,
@@ -52,7 +52,7 @@ export const HeaderChat: React.FunctionComponent<HeaderChatProps> = ({
       <ReportModal
         isOpen={reportPopup}
         onClose={() => setReportPopup(false)}
-        reportType={'user'}
+        reportType={"user"}
         reportedItemId={userId ?? -1}
         useCreateReportMutation={useCreateReportMutation}
         setLoading={setLoading}
@@ -61,69 +61,69 @@ export const HeaderChat: React.FunctionComponent<HeaderChatProps> = ({
       <TouchableOpacity
         onPress={onBack}
         style={{
-          position: 'absolute',
-          left: hp('2%'),
-          alignSelf: 'center',
-          top: hp('7%'),
+          position: "absolute",
+          left: hp("2%"),
+          alignSelf: "center",
+          top: hp("7%"),
         }}
       >
         <Image
-          source={require('@images/back.png')}
+          source={require("../../../assets/images/back.png")}
           style={{
-            width: hp('3.5%'),
-            height: hp('3.5%'),
+            width: hp("3.5%"),
+            height: hp("3.5%"),
           }}
         />
       </TouchableOpacity>
       <View
         style={{
-          position: 'absolute',
-          right: hp('2%'),
-          alignSelf: 'center',
-          top: hp('7%'),
+          position: "absolute",
+          right: hp("2%"),
+          alignSelf: "center",
+          top: hp("7%"),
         }}
       >
         <Menu
-          w='190'
+          w="190"
           trigger={(triggerProps) => {
             return (
               <Pressable
-                accessibilityLabel='More options menu'
+                accessibilityLabel="More options menu"
                 {...triggerProps}
               >
                 <Image
-                  source={require('@images/menu.png')}
+                  source={require("../../../assets/images/menu.png")}
                   style={{
-                    width: hp('3.5%'),
-                    height: hp('3.5%'),
+                    width: hp("3.5%"),
+                    height: hp("3.5%"),
                   }}
                 />
               </Pressable>
-            )
+            );
           }}
         >
           <Menu.Item onPress={() => setReportPopup(true)}>Signaler</Menu.Item>
         </Menu>
       </View>
 
-      <Container direction='column' justifyContent='center' alignItems='center'>
-        {picture !== 'remove_image' && (
+      <Container direction="column" justifyContent="center" alignItems="center">
+        {picture !== "remove_image" && (
           <Avatar
             bg={Colors.primary}
             source={
               picture === null
-                ? require('@images/avatar.png')
+                ? require("../../../assets/images/avatar.png")
                 : { uri: picture }
             }
-            size='sm'
+            size="sm"
           />
         )}
-        <Text bold fontSize={'lg'}>
+        <Text bold fontSize={"lg"}>
           {title}
         </Text>
       </Container>
     </Container>
-  )
-}
+  );
+};
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
