@@ -37,14 +37,14 @@ export const SendMessageBar: React.FunctionComponent<SendMessageBarProps> = ({
       <TextInput
         label="Votre message..."
         style={{
-          width: wp("80%"),
+          width: wp("70%"),
         }}
         value={message2Send}
         onChangeText={(text) => setMessage2Send(text)}
       />
       <Button
         style={{
-          width: wp("20%"),
+          width: wp("30%"),
         }}
         onPress={() => onSendMessage()}
         title="Envoyer"

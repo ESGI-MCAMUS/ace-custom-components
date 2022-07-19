@@ -40,7 +40,7 @@ export const RoomItem: React.FunctionComponent<RoomItemProps> = ({
       <Spacer space="2%" />
 
       <Text
-        variant="h3"
+        variant="h5"
         style={{
           fontWeight: "bold",
         }}

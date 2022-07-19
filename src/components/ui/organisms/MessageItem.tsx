@@ -63,7 +63,7 @@ export const MessageItem: React.FunctionComponent<MessageItemProps> = ({
             marginHorizontal: hp("2%"),
             marginVertical: hp(".5%"),
             fontStyle: "italic",
-            fontSize: hp(".5%"),
+            fontSize: hp(".75%"),
           }}
           color={
             message.sender_id !== friendId ? Colors.secondary : Colors.text
