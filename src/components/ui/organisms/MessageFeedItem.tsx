@@ -1,16 +1,15 @@
-// @ts-nocheck
-import { Container } from '../../common/Container.component'
-import { Message } from '../../../model/messages'
-import { hp } from '../../../utils/functions'
-import { Text } from 'native-base'
-import * as React from 'react'
-import { StyleSheet, View } from 'react-native'
-import { Colors } from '../../../constants/Colors'
+//@ts-nocheck
+import { Container } from "../../common/Container.component";
+import { Message } from "../../../model/messages";
+import { hp } from "../../../utils/functions";
+import * as React from "react";
+import { Colors } from "../../../constants/Colors";
+import { Text } from "@react-native-material/core";
 
 interface MessageFeedItemProps {
-  message: Message
-  friendId: number
-  userId?: number
+  message: Message;
+  friendId: number;
+  userId?: number;
 }
 
 export const MessageFeedItem: React.FunctionComponent<MessageFeedItemProps> = ({
@@ -27,19 +26,18 @@ export const MessageFeedItem: React.FunctionComponent<MessageFeedItemProps> = ({
           : Colors.friendMessageColor,
       alignSelf:
         message.sender_id !== friendId || userId === message.sender_id
-          ? 'flex-end'
-          : 'flex-start',
+          ? "flex-end"
+          : "flex-start",
       borderRadius: 15,
-      marginHorizontal: hp('2%'),
-      marginVertical: hp('.25%'),
+      marginHorizontal: hp("2%"),
+      marginVertical: hp(".25%"),
     }}
   >
     <Text
-      fontSize={'md'}
       style={{
-        alignSelf: 'flex-start',
-        marginHorizontal: hp('2%'),
-        marginVertical: hp('.5%'),
+        alignSelf: "flex-start",
+        marginHorizontal: hp("2%"),
+        marginVertical: hp(".5%"),
       }}
       color={
         message.sender_id !== friendId || userId === message.sender_id
@@ -50,14 +48,14 @@ export const MessageFeedItem: React.FunctionComponent<MessageFeedItemProps> = ({
       {message.message}
     </Text>
     <Text
-      fontSize={'xs'}
       style={{
-        alignSelf: 'center',
-        marginHorizontal: hp('2%'),
-        marginVertical: hp('.5%'),
+        alignSelf: "center",
+        marginHorizontal: hp("2%"),
+        marginVertical: hp(".5%"),
+        fontSize: hp("1%"),
+        textAlign: "center",
+        fontStyle: "italic",
       }}
-      textAlign='center'
-      italic
       color={
         message.sender_id !== friendId || userId === message.sender_id
           ? Colors.secondary
@@ -69,6 +67,4 @@ export const MessageFeedItem: React.FunctionComponent<MessageFeedItemProps> = ({
       } ${message.sender.lastname} (${message.sender.username})`}
     </Text>
   </Container>
-)
-
-const styles = StyleSheet.create({})
+);

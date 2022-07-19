@@ -1,12 +1,11 @@
 import { Container } from "../../common/Container.component";
 import { Room } from "../../../model/room";
 import * as React from "react";
-import { StyleSheet } from "react-native";
 import { Colors } from "../../../constants/Colors";
-import { Avatar, Button, Divider, Text } from "native-base";
 import { Spacer } from "../../common/Spacer";
 import { hp, wp } from "../../../utils/functions";
 import { Link } from "../molecules/Link";
+import { Avatar, Button, Divider, Text } from "@react-native-material/core";
 
 interface RoomItemProps {
   room: Room;
@@ -40,10 +39,19 @@ export const RoomItem: React.FunctionComponent<RoomItemProps> = ({
     >
       <Spacer space="2%" />
 
-      <Text bold fontSize={"2xl"}>
+      <Text
+        variant="h3"
+        style={{
+          fontWeight: "bold",
+        }}
+      >
         {room.name}
       </Text>
-      <Divider width={wp("20%")} my="2" backgroundColor={Colors.inactive} />
+      <Divider
+        style={{
+          width: wp("20%"),
+        }}
+      />
       <Container
         justifyContent="center"
         alignItems="center"
@@ -51,29 +59,27 @@ export const RoomItem: React.FunctionComponent<RoomItemProps> = ({
         disablePaddingFix
       >
         <Avatar
-          bg={Colors.primary}
-          source={
+          autoColor
+          image={
             room.creator.profile_picture === null
               ? require("../../../assets/images/avatar.png")
               : { uri: room.creator.profile_picture }
           }
-          size="md"
         />
-        <Text
-          fontSize={"md"}
-        >{`Fil de disussion créé par ${room.creator.firstname} ${room.creator.lastname}`}</Text>
-        <Text fontSize={"sm"} italic>
-          {room.creator.username}
-        </Text>
+        <Text>{`Fil de disussion créé par ${room.creator.firstname} ${room.creator.lastname}`}</Text>
+        <Text style={{ fontStyle: "italic" }}>{room.creator.username}</Text>
         <Spacer space="1%" />
-        <Text fontSize={"sm"} italic>
+        <Text style={{ fontStyle: "italic" }}>
           {new Date(room.createdAt).toLocaleDateString()} à{" "}
           {new Date(room.createdAt).toLocaleTimeString()}
         </Text>
       </Container>
-      <Divider width={wp("20%")} my="2" backgroundColor={Colors.inactive} />
-
-      <Button onPress={openFeed}>Ouvrir la discussion</Button>
+      <Divider
+        style={{
+          width: wp("20%"),
+        }}
+      />
+      <Button onPress={openFeed} title={"Ouvrir la discussion"} />
       <Spacer space="2%" />
       <Link onPress={onReport}>Signaler</Link>
       <Spacer space="2%" />
@@ -81,5 +87,3 @@ export const RoomItem: React.FunctionComponent<RoomItemProps> = ({
     <Spacer space="5%" />
   </>
 );
-
-const styles = StyleSheet.create({});

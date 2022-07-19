@@ -1,10 +1,11 @@
 import { Container } from "../../common/Container.component";
 import { User } from "../../../model/application";
 import { hp, wp } from "../../../utils/functions";
-import { Avatar, Divider, Text } from "native-base";
 import * as React from "react";
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import { Colors } from "../../../constants/Colors";
+
+import { Avatar, Text } from "@react-native-material/core";
 
 interface FriendItemProps {
   friend: Partial<User> | undefined;
@@ -28,19 +29,14 @@ export const FriendItem: React.FunctionComponent<FriendItemProps> = ({
       }}
     >
       <Avatar
-        bg={Colors.primary}
-        source={
+        autoColor
+        image={
           friend?.profile_picture === null
-            ? require("../../../assets/images/avatar.png")
+            ? require("@images/avatar.png")
             : { uri: friend!.profile_picture }
         }
-        style={{
-          marginRight: wp("2%"),
-        }}
-        size="md"
       />
       <Text
-        fontSize={"md"}
         color="black"
         style={{
           marginRight: wp("2%"),
