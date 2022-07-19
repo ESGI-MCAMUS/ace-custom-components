@@ -47,7 +47,7 @@ export const FriendItem: React.FunctionComponent<FriendItemProps> = ({
       {onAdd && (
         <TouchableOpacity onPress={onAdd}>
           <Image
-            source={require("../../../assets/images/friend_add.png")}
+            source={require("@images/friend_add.png")}
             style={{
               width: hp("4%"),
               height: hp("4%"),
@@ -60,7 +60,7 @@ export const FriendItem: React.FunctionComponent<FriendItemProps> = ({
       {onDelete && (
         <TouchableOpacity onPress={onDelete}>
           <Image
-            source={require("../../../assets/images/delete_friend.png")}
+            source={require("@images/delete_friend.png")}
             style={{
               width: hp("4%"),
               height: hp("4%"),

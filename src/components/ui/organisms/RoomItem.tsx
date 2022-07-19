@@ -62,7 +62,7 @@ export const RoomItem: React.FunctionComponent<RoomItemProps> = ({
           autoColor
           image={
             room.creator.profile_picture === null
-              ? require("../../../assets/images/avatar.png")
+              ? require("@images/avatar.png")
               : { uri: room.creator.profile_picture }
           }
         />
